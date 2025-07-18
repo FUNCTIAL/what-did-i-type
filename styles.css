@@ -1,6 +1,17 @@
+* {
+    font-family: Sarabun, Arial, sans-serif;
+}
+
+.title a{
+    color: #ff6314;
+    
+}
+
+
 body {
-    font-family: Arial, sans-serif;
     margin: 30px;
+    background-color: #161618ff;
+    color: #ebebec;
 }
 
 textarea {

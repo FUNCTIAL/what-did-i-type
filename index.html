@@ -6,11 +6,22 @@
   <title>ลืมเปลี่ยนภาษา…</title>
 </head>
 <body>
-  <h1>ลืมเปลี่ยนภาษา…</h1>
+  <h1>
+    <a href="..">
+    <img src="./assets/icon.png" alt="Functial Logo" width="64px">
+    </a>
+  </h1>
 
+  <h2 class="title">
+    <a href=".">
+    ]n,gx]ujpo4kKk…
+    </a>
+  </h2>
+  <p>อ่าวลืมเปลี่ยนภาษา…</p>
+  
   <!-- Thai to English -->
   <div class="section">
-    <h2>Thai 🡒 English (th&gt;en)</h2>
+    <h3>Thai 🡒 English</h3>
     <textarea id="thaiInput" placeholder="พิมพ์ภาษาไทยที่นี่ (Type Thai here)"></textarea><br>
     <button onclick="convertThaiToEnglish()">Convert to English</button><br>
     <textarea id="enOutput" readonly placeholder="English keyboard output..."></textarea>
@@ -18,7 +29,7 @@
 
   <!-- English to Thai -->
   <div class="section">
-    <h2>English 🡒 Thai (en&gt;th)</h2>
+    <h3>English 🡒 Thai</h3>
     <textarea id="enInput" placeholder="Type English here"></textarea><br>
     <button onclick="convertEnglishToThai()">Convert to Thai</button><br>
     <textarea id="thaiOutput" readonly placeholder="ผลลัพธ์ภาษาไทย (Thai keyboard output)..."></textarea>
@@ -26,7 +37,7 @@
 
   <!-- Swap both ways -->
   <div class="section">
-    <h2>🡘 Swap Both Ways (th&lt;-&gt;en)</h2>
+    <h3>🡘 Swap Both Ways</h3>
     <textarea id="bothInput" placeholder="Type Thai, English, or mixed..."></textarea><br>
     <button onclick="swapBothWays()">Swap Layout</button><br>
     <textarea id="bothOutput" readonly placeholder="Swapped output (Thai-English)"></textarea>
