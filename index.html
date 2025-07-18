@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sarabun">
   <title>ลืมเปลี่ยนภาษา…</title>
 </head>
+
 <body>
-  <h1>
-    <a href="..">
-    <img src="./assets/icon.png" alt="Functial Logo" width="64px">
-    </a>
-  </h1>
 
   <h2 class="title">
+    <a href="https://functial.github.io">
+      <img src="./assets/icon.png" alt="Functial Logo" width="64px">
+    </a>
+    <br>
     <a href=".">
-    ]n,gx]ujpo4kKk…
+      ]n,gx]ujpo4kKk…
     </a>
   </h2>
   <p>อ่าวลืมเปลี่ยนภาษา…</p>
-  
+
   <!-- Thai to English -->
   <div class="section">
     <h3>Thai 🡒 English</h3>
     <textarea id="thaiInput" placeholder="พิมพ์ภาษาไทยที่นี่ (Type Thai here)"></textarea><br>
-    <button onclick="convertThaiToEnglish()">Convert to English</button><br>
+    <button onclick="convertTHtoENlish()">Convert to English</button><br>
     <textarea id="enOutput" readonly placeholder="English keyboard output..."></textarea>
   </div>
 
@@ -45,28 +47,28 @@
 
   <script>
     // ----- Mappings -----
-    const thaiToEng = {
-      'ๅ':'1','+':'!','๑':'@','/':'2','-':'3','๒':'#','ภ':'4','๓':'$','ถ':'5','๔':'%','ุ':'6','ู':'^','ึ':'7','฿':'&',
-      'ค':'8','๕':'*','ต':'9','๖':'(','จ':'0','๗':')','ข':'-','๘':'_','ช':'=','๙':'+','ๆ':'q','๐':'Q','ไ':'w','"':'W',
-      'ำ':'e','ฎ':'E','พ':'r','ฑ':'R','ะ':'t','ธ':'T','ั':'y','ํ':'Y','ี':'u','๊':'U','ร':'i','ณ':'I','น':'o','ฯ':'O',
-      'ย':'p','ญ':'P','บ':'[','ฐ':'{','ล':']','ฃ':'\\','ฟ':'a','ฤ':'A','ห':'s','ฆ':'S','ก':'d','ฏ':'D','ด':'f','โ':'F',
-      'เ':'g','ฌ':'G','้':'h','็':'H','่':'j','๋':'J','า':'k','ษ':'K','ส':'l','ศ':'L','ว':';','ซ':':','ง':'\'','ง':'’','ผ':'z',
-      '(':'Z','ป':'x',')':'X','แ':'c','ฉ':'C','อ':'v','ฮ':'V','ิ':'b','ฺ':'B','ื':'n','์':'N','ม':',','ฒ':'<','ใ':'.',
-      'ฬ':'>','ฝ':'/','ฦ':'?','ท':'m','ท':'m'
+    const THtoEN = {
+      'ๅ': '1', '+': '!', '๑': '@', '/': '2', '-': '3', '๒': '#', 'ภ': '4', '๓': '$', 'ถ': '5', '๔': '%', 'ุ': '6', 'ู': '^', 'ึ': '7', '฿': '&',
+      'ค': '8', '๕': '*', 'ต': '9', '๖': '(', 'จ': '0', '๗': ')', 'ข': '-', '๘': '_', 'ช': '=', '๙': '+', 'ๆ': 'q', '๐': 'Q', 'ไ': 'w', '"': 'W',
+      'ำ': 'e', 'ฎ': 'E', 'พ': 'r', 'ฑ': 'R', 'ะ': 't', 'ธ': 'T', 'ั': 'y', 'ํ': 'Y', 'ี': 'u', '๊': 'U', 'ร': 'i', 'ณ': 'I', 'น': 'o', 'ฯ': 'O',
+      'ย': 'p', 'ญ': 'P', 'บ': '[', 'ฐ': '{', 'ล': ']', 'ฃ': '\\', 'ฟ': 'a', 'ฤ': 'A', 'ห': 's', 'ฆ': 'S', 'ก': 'd', 'ฏ': 'D', 'ด': 'f', 'โ': 'F',
+      'เ': 'g', 'ฌ': 'G', '้': 'h', '็': 'H', '่': 'j', '๋': 'J', 'า': 'k', 'ษ': 'K', 'ส': 'l', 'ศ': 'L', 'ว': ';', 'ซ': ':', 'ง': '\'', 'ง': '’', 'ผ': 'z',
+      '(': 'Z', 'ป': 'x', ')': 'X', 'แ': 'c', 'ฉ': 'C', 'อ': 'v', 'ฮ': 'V', 'ิ': 'b', 'ฺ': 'B', 'ื': 'n', '์': 'N', 'ม': ',', 'ฒ': '<', 'ใ': '.',
+      'ฬ': '>', 'ฝ': '/', 'ฦ': '?', 'ท': 'm', 'ท': 'm'
     };
 
     // Invert mapping for English to Thai
-    const engToThai = {};
-    for (const [th, en] of Object.entries(thaiToEng)) {
-      engToThai[en] = th;
+    const ENtoTH = {};
+    for (const [th, en] of Object.entries(THtoEN)) {
+      ENtoTH[en] = th;
     }
 
     // ----- Conversion Functions -----
-    function convertThaiToEnglish() {
-      const thaiText = document.getElementById('thaiInput').value;
+    function convertTHtoENlish() {
+      const thText = document.getElementById('thaiInput').value;
       let result = '';
-      for (let ch of thaiText) {
-        result += thaiToEng[ch] ? thaiToEng[ch] : ch;
+      for (let ch of thText) {
+        result += THtoEN[ch] ? THtoEN[ch] : ch;
       }
       document.getElementById('enOutput').value = result;
     }
@@ -75,7 +77,7 @@
       const enText = document.getElementById('enInput').value;
       let result = '';
       for (let ch of enText) {
-        result += engToThai[ch] ? engToThai[ch] : ch;
+        result += ENtoTH[ch] ? ENtoTH[ch] : ch;
       }
       document.getElementById('thaiOutput').value = result;
     }
@@ -84,10 +86,10 @@
       const bothText = document.getElementById('bothInput').value;
       let result = '';
       for (let ch of bothText) {
-        if (thaiToEng[ch]) {
-          result += thaiToEng[ch];
-        } else if (engToThai[ch]) {
-          result += engToThai[ch];
+        if (THtoEN[ch]) {
+          result += THtoEN[ch];
+        } else if (ENtoTH[ch]) {
+          result += ENtoTH[ch];
         } else {
           result += ch;
         }
@@ -96,4 +98,5 @@
     }
   </script>
 </body>
+
 </html>

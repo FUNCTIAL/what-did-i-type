@@ -2,22 +2,28 @@
     font-family: Sarabun, Arial, sans-serif;
 }
 
-.title a{
+.title {
+}
+
+.title a {
     color: #ff6314;
-    
 }
 
 
 body {
+    text-align: center;
+    font-size: 1rem;
     margin: 30px;
     background-color: #161618ff;
     color: #ebebec;
 }
 
 textarea {
-    width: 400px;
-    height: 60px;
-    margin-bottom: 10px;
+    width: 90%;
+    height: 6em;
+    margin-bottom: 16px;
+    resize: horizontal;
+    overflow: hidden;
 }
 
 .section {
