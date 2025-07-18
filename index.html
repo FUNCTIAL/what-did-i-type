@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <title>ลืมเปลี่ยนภาษา…</title>
+</head>
+<body>
+  <h1>ลืมเปลี่ยนภาษา…</h1>
+
+  <!-- Thai to English -->
+  <div class="section">
+    <h2>Thai 🡒 English (th&gt;en)</h2>
+    <textarea id="thaiInput" placeholder="พิมพ์ภาษาไทยที่นี่ (Type Thai here)"></textarea><br>
+    <button onclick="convertThaiToEnglish()">Convert to English</button><br>
+    <textarea id="enOutput" readonly placeholder="English keyboard output..."></textarea>
+  </div>
+
+  <!-- English to Thai -->
+  <div class="section">
+    <h2>English 🡒 Thai (en&gt;th)</h2>
+    <textarea id="enInput" placeholder="Type English here"></textarea><br>
+    <button onclick="convertEnglishToThai()">Convert to Thai</button><br>
+    <textarea id="thaiOutput" readonly placeholder="ผลลัพธ์ภาษาไทย (Thai keyboard output)..."></textarea>
+  </div>
+
+  <!-- Swap both ways -->
+  <div class="section">
+    <h2>🡘 Swap Both Ways (th&lt;-&gt;en)</h2>
+    <textarea id="bothInput" placeholder="Type Thai, English, or mixed..."></textarea><br>
+    <button onclick="swapBothWays()">Swap Layout</button><br>
+    <textarea id="bothOutput" readonly placeholder="Swapped output (Thai-English)"></textarea>
+  </div>
+
+  <script>
+    // ----- Mappings -----
+    const thaiToEng = {
+      'ๅ':'1','+':'!','๑':'@','/':'2','-':'3','๒':'#','ภ':'4','๓':'$','ถ':'5','๔':'%','ุ':'6','ู':'^','ึ':'7','฿':'&',
+      'ค':'8','๕':'*','ต':'9','๖':'(','จ':'0','๗':')','ข':'-','๘':'_','ช':'=','๙':'+','ๆ':'q','๐':'Q','ไ':'w','"':'W',
+      'ำ':'e','ฎ':'E','พ':'r','ฑ':'R','ะ':'t','ธ':'T','ั':'y','ํ':'Y','ี':'u','๊':'U','ร':'i','ณ':'I','น':'o','ฯ':'O',
+      'ย':'p','ญ':'P','บ':'[','ฐ':'{','ล':']','ฃ':'\\','ฟ':'a','ฤ':'A','ห':'s','ฆ':'S','ก':'d','ฏ':'D','ด':'f','โ':'F',
+      'เ':'g','ฌ':'G','้':'h','็':'H','่':'j','๋':'J','า':'k','ษ':'K','ส':'l','ศ':'L','ว':';','ซ':':','ง':'\'','ง':'’','ผ':'z',
+      '(':'Z','ป':'x',')':'X','แ':'c','ฉ':'C','อ':'v','ฮ':'V','ิ':'b','ฺ':'B','ื':'n','์':'N','ม':',','ฒ':'<','ใ':'.',
+      'ฬ':'>','ฝ':'/','ฦ':'?','ท':'m','ท':'m'
+    };
+
+    // Invert mapping for English to Thai
+    const engToThai = {};
+    for (const [th, en] of Object.entries(thaiToEng)) {
+      engToThai[en] = th;
+    }
+
+    // ----- Conversion Functions -----
+    function convertThaiToEnglish() {
+      const thaiText = document.getElementById('thaiInput').value;
+      let result = '';
+      for (let ch of thaiText) {
+        result += thaiToEng[ch] ? thaiToEng[ch] : ch;
+      }
+      document.getElementById('enOutput').value = result;
+    }
+
+    function convertEnglishToThai() {
+      const enText = document.getElementById('enInput').value;
+      let result = '';
+      for (let ch of enText) {
+        result += engToThai[ch] ? engToThai[ch] : ch;
+      }
+      document.getElementById('thaiOutput').value = result;
+    }
+
+    function swapBothWays() {
+      const bothText = document.getElementById('bothInput').value;
+      let result = '';
+      for (let ch of bothText) {
+        if (thaiToEng[ch]) {
+          result += thaiToEng[ch];
+        } else if (engToThai[ch]) {
+          result += engToThai[ch];
+        } else {
+          result += ch;
+        }
+      }
+      document.getElementById('bothOutput').value = result;
+    }
+  </script>
+</body>
+</html>
