@@ -2,9 +2,6 @@
     font-family: Sarabun, Arial, sans-serif;
 }
 
-.title {
-}
-
 .title a {
     color: #ff6314;
 }
@@ -20,10 +17,30 @@ body {
 
 textarea {
     width: 90%;
-    height: 6em;
-    margin-bottom: 16px;
-    resize: horizontal;
-    overflow: hidden;
+    height: 16em;
+    resize: vertical;
+}
+
+button {
+    background-color: #ff6314;
+    border: 2px solid #ff6314;
+    border-radius: 32px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 16px;
+    transition-duration: 0.2s;
+    transition-behavior: 
+}
+
+button:hover {
+  background-color: white; /* Green */
+  color: #ff6314;
+  border: 2px solid #ff6314;
+  cursor: pointer;
 }
 
 .section {
