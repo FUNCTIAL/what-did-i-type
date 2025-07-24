@@ -36,10 +36,10 @@ button {
 }
 
 button:hover {
-  background-color: white; /* Green */
-  color: #ff6314;
-  border: 2px solid #ff6314;
-  cursor: pointer;
+    background-color: white;
+    color: #ff6314;
+    border: 2px solid #ff6314;
+    cursor: pointer;
 }
 
 .section {

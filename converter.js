@@ -17,7 +17,7 @@ for (const [th, en] of Object.entries(THtoEN)) {
 ENtoTH["'"] = 'ง';
 
 // ----- Conversion Functions -----
-function convertTHtoENlish() {
+function convertTHtoEN() {
     const thText = document.getElementById('Input').value;
     let result = '';
     for (let ch of thText) {
@@ -26,7 +26,7 @@ function convertTHtoENlish() {
     document.getElementById('Output').value = result;
 }
 
-function convertEnglishToThai() {
+function convertENToTH() {
     const enText = document.getElementById('Input').value;
     let result = '';
     for (let ch of enText) {
@@ -35,6 +35,7 @@ function convertEnglishToThai() {
     document.getElementById('Output').value = result;
 }
 
+// EN Priority
 function swapBothWays() {
     const bothText = document.getElementById('Input').value;
     let result = '';
@@ -49,3 +50,19 @@ function swapBothWays() {
     }
     document.getElementById('Output').value = result;
 }
+
+// TH Priority
+// function swapBothWays() {
+//     const bothText = document.getElementById('Input').value;
+//     let result = '';
+//     for (let ch of bothText) {
+//         if (ENtoTH[ch]) {
+//             result += ENtoTH[ch];
+//         } else if (THtoEN[ch]) {
+//             result += THtoEN[ch];
+//         } else {
+//             result += ch;
+//         }
+//     }
+//     document.getElementById('Output').value = result;
+// }
